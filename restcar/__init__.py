@@ -4,6 +4,7 @@
 
 import logging
 import os
+import sys
 
 from flask import Flask
 
@@ -12,6 +13,7 @@ from restcar.models import User
 from restcar.resources import api_blueprint
 from restcar.settings import LiveConfig, DevConfig, TestConfig
 
+
 configs = {
     'live': LiveConfig,
     'dev': DevConfig,
@@ -19,10 +21,6 @@ configs = {
 }
 
 DefaultConfig = configs.get(os.getenv("FLASK_ENV"), DevConfig)
-
-
-logger = logging.getLogger(__name__)
-logger.addHandler(logging.StreamHandler())
 
 
 def create_app(config_object=DefaultConfig):

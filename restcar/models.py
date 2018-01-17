@@ -1,8 +1,10 @@
+import logging
 from flask import url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from restcar.extensions import db
 
+logger = logging.getLogger()
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -36,7 +38,6 @@ class User(db.Model):
         self.active = True
         db.session.add(self)
         db.session.commit()
-        self.send_activation_email()
 
     def send_activation_email(self):
         url = url_for('api.useractivationresource', email=self.email)
@@ -51,9 +52,8 @@ class User(db.Model):
         Your Team
         """.format(url)
 
-        #TODO: logger import should be better placed but it needs to set up before importing so cannot be global
-        from restcar import logger
-        logger.debug(msg)
+        # TODO: setting logger to ERROR to avoid extra log configuration for this task in order to print it
+        logger.error(msg)
 
     @classmethod
     def get_by_email(cls, email):

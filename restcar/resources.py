@@ -23,10 +23,11 @@ class UserResource(Resource):
 
     def post(self):
         args = self.parser.parse_args()
-        instance = User(**args)
-        db.session.add(instance)
+        user = User(**args)
+        db.session.add(user)
         db.session.commit()
-        return {"msg": "User {} added, check your e-mail for the activation link.".format(instance.email)}
+        user.send_activation_email()
+        return {"msg": "User {} added, check your e-mail for the activation link.".format(user.email)}
 
 api.add_resource(UserResource, '/users/')
 
