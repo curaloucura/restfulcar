@@ -1,0 +1,17 @@
+wheel
+
+Flask
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-HTTPAuth
+
+gunicorn>=17.5
+gevent
+
+
+# Local environment only, but avoiding extra requirements management for this job-application task
+pytest
+mock
+Flask-Script
+honcho
