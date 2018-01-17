@@ -4,7 +4,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), os.path.pardir))
 import base64
 import flask_restful
 import json
-import mock
 import pytest
 import restcar
 

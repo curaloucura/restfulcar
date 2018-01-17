@@ -1,7 +1,6 @@
-wheel
-
 Flask
 Flask-RESTful
+flask_restplus
 Flask-SQLAlchemy
 Flask-Migrate
 Flask-HTTPAuth
@@ -10,8 +9,7 @@ gunicorn>=17.5
 gevent
 
 
-# Local environment only, but avoiding extra requirements management for this job-application task
+# Local environment only, but avoiding extra requirements files only for this job-application task
 pytest
-mock
+pytest-flask
 Flask-Script
-honcho
