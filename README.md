@@ -26,8 +26,6 @@ Manual installation as follows:
 API Endpoints
 -------------
 
-(Also available as swagger file in the repository)
-
 Create a new user
 POST /api/v1/users/
 data: email, password
